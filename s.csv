@@ -1,0 +1,100 @@
+state_code,name,country_code
+AN,Andaman and Nicobar Islands,IN
+AP,Andhra Pradesh,IN
+AR,Arunachal Pradesh,IN
+AS,Assam,IN
+BR,Bihar,IN
+CH,Chandigarh,IN
+CT,Chhattisgarh,IN
+DH,Dadra and Nagar Haveli and Daman and Diu,IN
+DL,Delhi,IN
+GA,Goa,IN
+GJ,Gujarat,IN
+HR,Haryana,IN
+HP,Himachal Pradesh,IN
+JK,Jammu and Kashmir,IN
+JH,Jharkhand,IN
+KA,Karnataka,IN
+KL,Kerala,IN
+LA,Ladakh,IN
+LD,Lakshadweep,IN
+MP,Madhya Pradesh,IN
+MH,Maharashtra,IN
+MN,Manipur,IN
+ML,Meghalaya,IN
+MZ,Mizoram,IN
+NL,Nagaland,IN
+OR,Odisha,IN
+PY,Puducherry,IN
+PB,Punjab,IN
+RJ,Rajasthan,IN
+SK,Sikkim,IN
+TN,Tamil Nadu,IN
+TG,Telangana,IN
+TR,Tripura,IN
+UP,Uttar Pradesh,IN
+UT,Uttarakhand,IN
+WB,West Bengal,IN
+AL,Alabama,US
+AK,Alaska,US
+AZ,American Samoa,US
+UMM,Arizona,US
+CA,Arkansas,US
+CO,Baker Island,US
+DE,California,US
+DC,Colorado,US
+FL,Connecticut,US
+GU,Delaware,US
+HI,District of Columbia,US
+UMN,Florida,US
+ID,Georgia,US
+IL,Guam,US
+IN,Hawaii,US
+IA,Howland Island,US
+UMQ,Idaho,US
+UMG,Illinois,US
+KS,Indiana,US
+KY,Iowa,US
+UMY,Jarvis Island,US
+ME,Johnston Atoll,US
+MD,Kansas,US
+MA,Kentucky,US
+MI,Kingman Reef,US
+UMR,Louisiana,US
+MS,Maine,US
+MO,Maryland,US
+MT,Massachusetts,US
+UMO,Michigan,US
+NE,Midway Atoll,US
+NV,Minnesota,US
+NH,Mississippi,US
+NJ,Missouri,US
+NM,Montana,US
+NY,Navassa Island,US
+NC,Nebraska,US
+ND,Nevada,US
+OH,New Hampshire,US
+OK,New Jersey,US
+UMRTG,New Mexico,US
+PA,New York,US
+PR,North Carolina,US
+RI,North Dakota,US
+SC,Northern Mariana Islands,US
+SD,Ohio,US
+TX,Oklahoma,US
+UM,Oregon,US
+VI,Palmyra Atoll,US
+VT,Pennsylvania,US
+VA,Puerto Rico,US
+UMRGF,Rhode Island,US
+WA,South Carolina,US
+WV,South Dakota,US
+WI,Tennessee,US
+WY,Texas,US
+ACT,United States Minor Outlying Islands,US
+NSW,United States Virgin Islands,US
+NT,Utah,US
+QLD,Vermont,US
+SA,Virginia,US
+TAS,Wake Island,US
+VIC,Washington,US

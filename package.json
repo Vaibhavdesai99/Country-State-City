@@ -1,0 +1,24 @@
+{
+  "name": "Country-Backend",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@cap-js/postgres": "^1.4.1",
+    "@sap/cds": "^7",
+    "axios": "^1.6.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "node-fetch": "^3.3.2",
+    "pg": "^8.11.3",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^1"
+  },
+  "scripts": {
+    "start": "cds-serve --port 3004"
+  }
+}

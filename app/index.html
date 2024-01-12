@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Country State City App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>COUNTRY-STATE-CITY DROPDOWN</h1>
+    <label for="countries">Select Country:</label>
+    <select id="countries">
+      <!-- Populate countries dynamically -->
+    </select>
+
+    <label for="states">Select State:</label>
+    <div id="stateCount">Count:-</div>
+    <select id="states">
+      <!-- States will be populated dynamically based on the selected country -->
+    </select>
+
+    <label for="cities">Select City:</label>
+    <div id="cityCount">Count:-</div>
+    <select id="cities">
+      <!-- Cities will be populated dynamically based on the selected state -->
+    </select>
+
+    <button id="sendButton">Send Data</button>
+    <button id="getButton">Get Data</button>
+
+    <table id="dataTable">
+      <thead>
+        <h2 id="tableheading">Search History</h2>
+        <tr>
+          <th>Country</th>
+          <th>State</th>
+          <th>City</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <script src="index.js"></script>
+  </body>
+</html>

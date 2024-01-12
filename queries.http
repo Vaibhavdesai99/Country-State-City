@@ -1,0 +1,13 @@
+GET http://localhost:3004/odata/v4/catalog/city
+
+
+###
+GET http://localhost:3004/odata/v4/catalog/countries
+
+
+
+###
+GET http://localhost:3004/odata/v4/catalog/state
+
+###
+GET http://localhost:3004/odata/v4/catalog/searchHistory
