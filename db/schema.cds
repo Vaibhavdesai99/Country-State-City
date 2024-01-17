@@ -25,7 +25,8 @@ namespace myapp;
 //Annotations @mandatory 
 
 entity searchHistory{
-     country_name:String @mandatory;
-     state_name:String @mandatory;
-     city_name:String  @mandatory;
+     country:String @mandatory;
+     state:String @mandatory;
+     city:String  @mandatory;
 }
+

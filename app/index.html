@@ -8,6 +8,26 @@
   </head>
   <body>
     <h1>COUNTRY-STATE-CITY DROPDOWN</h1>
+
+    <button id="toggleForm">Open Form</button>
+    <div id="form-to-feed-data">
+      <div id="enterCountryName">
+        <input type="text" id="countryCode" placeholder="Enter Country Code" />
+        <input type="text" id="countryName" placeholder="Enter Country Name" />
+        <button id="sendCountryData">Add Country</button>
+      </div>
+
+      <div id="enterStateName">
+        <input type="text" id="stateCode" placeholder="Enter State Code" />
+        <input type="text" id="stateName" placeholder="Enter State Name" />
+        <button id="sendStateData">Add State</button>
+      </div>
+
+      <div id="enterCityName">
+        <input type="text" id="cityName" placeholder="Enter city Name" />
+        <button id="sendCityData">Add City</button>
+      </div>
+    </div>
     <label for="countries">Select Country:</label>
     <select id="countries">
       <!-- Populate countries dynamically -->

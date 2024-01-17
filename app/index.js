@@ -6,6 +6,25 @@ document
   .getElementById("getButton")
   .addEventListener("click", getDataFromBackend);
 
+document
+  .getElementById("sendCountryData")
+  .addEventListener("click", sendCountryData);
+
+document
+  .getElementById("sendStateData")
+  .addEventListener("click", sendStateData);
+
+document.getElementById("sendCityData").addEventListener("click", sendCityData);
+
+// ============================Toggle form ========================================================
+const formContainer = document.getElementById("form-to-feed-data");
+const toggleButton = document.getElementById("toggleForm");
+
+toggleButton.addEventListener("click", () => {
+  formContainer.style.display =
+    formContainer.style.display === "none" ? "flex" : "none";
+});
+
 //---------------------------Fetching all countries when window load ------------------------------
 
 async function fetchCountries() {
@@ -172,6 +191,70 @@ async function getDataFromBackend() {
     });
   } catch (error) {
     console.error("Error getting data:", error);
+  }
+}
+
+//===================================SEND country Data to BACKEND-DB ==================================
+async function sendCountryData() {
+  try {
+    const enteredCountryCode = document.getElementById("countryCode").value;
+    const enteredCountryName = document.getElementById("countryName").value;
+
+    const response = await fetch(`/odata/v4/catalog/countries`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        country_code: enteredCountryCode,
+        name: enteredCountryName,
+      }),
+    });
+
+    // Refresh countries after adding a new one
+    fetchCountries();
+  } catch (error) {
+    console.log("error", error);
+  }
+}
+
+//=========================send state data ==========================================================
+
+async function sendStateData() {
+  try {
+    const enteredStateCode = document.getElementById("stateCode").value;
+    const enteredStateName = document.getElementById("stateName").value;
+
+    const response = await fetch(`/odata/v4/catalog/state`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        state_code: enteredStateCode,
+        name: enteredStateName,
+      }),
+    });
+  } catch (error) {
+    console.log("error", error);
+  }
+}
+//================================send city DATA======================================================
+async function sendCityData() {
+  try {
+    const enteredCityName = document.getElementById("cityName").value;
+    console.log(enteredCityName);
+    const response = await fetch(`/odata/v4/catalog/city`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: enteredCityName,
+      }),
+    });
+  } catch (error) {
+    console.log("error", error);
   }
 }
 

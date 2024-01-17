@@ -64,4 +64,49 @@ select#cities {
   transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
-/* Add more styles as needed */
+#form-to-feed-data {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: auto;
+}
+
+#enterCountryName,
+#enterStateName,
+#enterCityName {
+  margin-bottom: 15px;
+  width: 125%;
+  padding: 10px;
+  border: 3px solid #1f1f22;
+  border-radius: 10px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 11px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #483e23;
+  color: #fff;
+  border: none;
+  padding: 13px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Optional: Add some spacing between the input fields */
+#enterCountryName input,
+#enterStateName input {
+  margin-right: 5px;
+  margin-right: 5px;
+  border-radius: 10px;
+  padding: 10px;
+}

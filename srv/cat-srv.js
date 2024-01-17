@@ -61,16 +61,21 @@ module.exports = async (srv) => {
     }
   });
 
-  //----------------------------------COUNTRIES TO GET COUNTRY-CODE---------------------------------------
+  //----------------------------------COUNTRIES TO GET COUNTRY-CODE an send to Backend---------------------------------------
   srv.on("CREATE", "countries", async (req) => {
     const { data } = req;
-    const country_code = data.country_code; // Extract the value of country_code
+    const country_code = data.country_code;
 
     country_new_code = country_code;
-    // console.log("wwwwww", country_new_code);
-    // console.log("country_code coming from backend", country_code);
+
     try {
-      const result = await db.run(SELECT.from("myapp_countries"));
+      const query = `INSERT INTO myapp_countries
+        (country_code,name)
+        VALUES($1,$2)
+        RETURNING *`;
+
+      const values = [country_new_code, data.name];
+      const result = await db.run(query, values);
       return result;
     } catch (error) {
       console.error("Error creating country", error);
@@ -78,17 +83,43 @@ module.exports = async (srv) => {
     }
   });
 
-  //--------------------------------STATE TO GET STATE-CODE-----------------------------
+  //--------------------------------STATE TO GET STATE-CODE and send to backend-----------------------------
 
   srv.on("CREATE", "state", async (req) => {
-    const { data } = req;
-    const state_code = data.state_code; // Extract the value of country_code
+    const { state_code, name } = req.data;
 
     state_new_code = state_code;
-    // console.log("eeeeeee", state_new_code);
-    // console.log("state coming from backend", state_new_code);
+
     try {
-      const result = await db.run(SELECT.from("myapp_state"));
+      const query = `INSERT INTO myapp_state
+        (state_code,name,country_code)
+        VALUES($1,$2,$3)
+        RETURNING *`;
+
+      const values = [state_code, name, country_new_code];
+      const result = await db.run(query, values);
+      return result;
+    } catch (error) {
+      console.error("Error creating country", error);
+      throw error;
+    }
+  });
+
+  //================================ create City  operation and send to backend =======================
+
+  srv.on("CREATE", "city", async (req) => {
+    const { name } = req.data;
+
+    // console.log("cityName", city_Nameeee);
+
+    try {
+      const query = `INSERT INTO myapp_city
+        (name,state_code,country_code)
+        VALUES($1,$2,$3)
+        RETURNING *`;
+
+      const values = [name, state_new_code, country_new_code];
+      const result = await db.run(query, values);
       return result;
     } catch (error) {
       console.error("Error creating country", error);
