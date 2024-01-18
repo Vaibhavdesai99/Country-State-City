@@ -209,8 +209,6 @@ async function sendDataToBackend() {
   }
 }
 
-// Other existing code...
-
 // Function to get data from the backend
 async function getDataFromBackend() {
   try {
@@ -231,14 +229,41 @@ async function getDataFromBackend() {
       const countryCell = row.insertCell(0);
       const stateCell = row.insertCell(1);
       const cityCell = row.insertCell(2);
+      const actionCell = row.insertCell(3); // Add a new cell for the Delete button
 
       // Populate cells with data
       countryCell.textContent = item.country || "";
       stateCell.textContent = item.state || "";
       cityCell.textContent = item.city || "";
+
+      // Create and append the Delete button
+      const deleteButton = document.createElement("button");
+      deleteButton.textContent = "Delete";
+      deleteButton.addEventListener("click", () => deleteData(item.id));
+      actionCell.appendChild(deleteButton);
     });
   } catch (error) {
     console.error("Error getting data:", error);
+  }
+}
+//=================================Delete button functionality=======================================
+async function deleteData(itemId) {
+  try {
+    console.log("deletedatafrontend", itemId);
+    const response = await fetch(
+      `/odata/v4/get-search-history/GETsearchHistory(${itemId})`,
+      {
+        method: "DELETE",
+      }
+    );
+
+    const result = await response.json();
+    console.log("Data deleted successfully:", result);
+
+    // Refresh the table after deletion
+    getDataFromBackend();
+  } catch (error) {
+    console.error("Error deleting data:", error);
   }
 }
 

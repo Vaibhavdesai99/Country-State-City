@@ -152,4 +152,22 @@ module.exports = async (srv) => {
       throw error;
     }
   });
+
+  //===================================DELETE DATA FROM DATABASE ====================================
+  srv.on("DELETE", "GETsearchHistory", async (req) => {
+    const ComingFromFrontendid = req.params[0].id;
+
+    // Log the ID
+    console.log("Deleting ID:", ComingFromFrontendid);
+    try {
+      const result = await db.run(
+        DELETE.from("myapp_searchhistory").where({ id: ComingFromFrontendid })
+      );
+      console.log("resultofDelete", result);
+      return result;
+    } catch (error) {
+      console.error("Error deleting data", error);
+      throw error;
+    }
+  });
 };
