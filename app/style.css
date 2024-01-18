@@ -18,6 +18,42 @@ button {
   background-color: darkgray;
 }
 
+#dataTable {
+  border-collapse: collapse;
+  width: 80%;
+  margin: 20px auto;
+}
+
+#dataTable th,
+#dataTable td {
+  border: 1px solid #342525;
+  text-align: left;
+  padding: 8px;
+}
+
+#dataTable th {
+  background-color: #f2f2f2;
+}
+
+#tableheading {
+  color: #333;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+/* Optional: Add some styling for a clean look */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f8f8;
+  margin: 38px 91px;
+  padding: 30px;
+}
+
+/* Optional: Center the table heading */
+#tableheading {
+  text-align: center;
+}
+
 h1 {
   color: #333;
   border-bottom: 6px solid red;
@@ -41,7 +77,7 @@ label {
 }
 
 #tableheading {
-  font-size: larger;
+  font-size: xx-large;
   color: brown;
 }
 
