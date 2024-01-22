@@ -154,19 +154,37 @@ module.exports = async (srv) => {
   });
 
   //===================================DELETE DATA FROM DATABASE ====================================
+  // srv.on("DELETE", "GETsearchHistory", async (req) => {
+  //   const ComingFromFrontendid = req.params[0].id;
+
+  //   // Log the ID
+  //   console.log("Deleting ID:", ComingFromFrontendid);
+  //   try {
+  //     const result = await db.run(
+  //       DELETE.from("myapp_searchhistory").where({ id: ComingFromFrontendid })
+  //     );
+  //     console.log("resultofDelete", result);
+  //     return result;
+  //   } catch (error) {
+  //     console.error("Error deleting data", error);
+  //     throw error;
+  //   }
+  // });
   srv.on("DELETE", "GETsearchHistory", async (req) => {
-    const ComingFromFrontendid = req.params[0].id;
+    const comingFromFrontendId = req.params[0].id;
 
     // Log the ID
-    console.log("Deleting ID:", ComingFromFrontendid);
+    console.log("Soft Deleting ID:", comingFromFrontendId);
     try {
       const result = await db.run(
-        DELETE.from("myapp_searchhistory").where({ id: ComingFromFrontendid })
+        UPDATE("myapp_searchhistory")
+          .set({ isdeleted: true })
+          .where({ id: comingFromFrontendId })
       );
-      console.log("resultofDelete", result);
+      console.log("Result of Soft Delete:", result);
       return result;
     } catch (error) {
-      console.error("Error deleting data", error);
+      console.error("Error soft deleting data", error);
       throw error;
     }
   });

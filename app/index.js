@@ -210,6 +210,42 @@ async function sendDataToBackend() {
 }
 
 // Function to get data from the backend
+// async function getDataFromBackend() {
+//   try {
+//     const response = await fetch(
+//       "/odata/v4/get-search-history/GETsearchHistory"
+//     );
+//     const result = await response.json();
+
+//     console.log("Data received from the server:", result);
+
+//     const data = result.value || [];
+//     const tableBody = document.querySelector("#dataTable tbody");
+//     tableBody.innerHTML = "";
+
+//     // Iterate through the received data and create table rows
+//     data.forEach((item) => {
+//       const row = tableBody.insertRow();
+//       const countryCell = row.insertCell(0);
+//       const stateCell = row.insertCell(1);
+//       const cityCell = row.insertCell(2);
+//       const actionCell = row.insertCell(3); // Add a new cell for the Delete button
+
+//       // Populate cells with data
+//       countryCell.textContent = item.country || "";
+//       stateCell.textContent = item.state || "";
+//       cityCell.textContent = item.city || "";
+
+//       // Create and append the Delete button
+//       const deleteButton = document.createElement("button");
+//       deleteButton.textContent = "Delete";
+//       deleteButton.addEventListener("click", () => deleteData(item.id));
+//       actionCell.appendChild(deleteButton);
+//     });
+//   } catch (error) {
+//     console.error("Error getting data:", error);
+//   }
+// }
 async function getDataFromBackend() {
   try {
     const response = await fetch(
@@ -217,19 +253,28 @@ async function getDataFromBackend() {
     );
     const result = await response.json();
 
-    console.log("Data received from the server:", result);
+    console.log("isdeleted", result);
+    console.log(
+      "Data received from the server (including soft-deleted):",
+      result
+    );
 
     const data = result.value || [];
     const tableBody = document.querySelector("#dataTable tbody");
     tableBody.innerHTML = "";
 
-    // Iterate through the received data and create table rows
-    data.forEach((item) => {
+    // Filter out soft-deleted records
+    const filteredData = data.filter((item) => item.isdeleted === "false");
+
+    console.log("isDeltedfiltereddata", filteredData);
+
+    // Iterate through the filtered data and create table rows
+    filteredData.forEach((item) => {
       const row = tableBody.insertRow();
       const countryCell = row.insertCell(0);
       const stateCell = row.insertCell(1);
       const cityCell = row.insertCell(2);
-      const actionCell = row.insertCell(3); // Add a new cell for the Delete button
+      const actionCell = row.insertCell(3);
 
       // Populate cells with data
       countryCell.textContent = item.country || "";
@@ -246,6 +291,7 @@ async function getDataFromBackend() {
     console.error("Error getting data:", error);
   }
 }
+
 //=================================Delete button functionality=======================================
 async function deleteData(itemId) {
   try {

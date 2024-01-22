@@ -32,5 +32,6 @@ entity searchHistory{
      country:String @mandatory;
      state:String @mandatory;
      city:String  @mandatory;
+     isdeleted:String;
 }
 
